@@ -16,12 +16,12 @@ class CounterModel extends ChangeNotifier {
 
   int get getCounter => _counter;
 
-  incrementCounter() {
+  void incrementCounter() {
     _counter++;
     notifyListeners();
   }
 
-  decrementCounter() {
+  void decrementCounter() {
     _counter--;
     notifyListeners();
   }
