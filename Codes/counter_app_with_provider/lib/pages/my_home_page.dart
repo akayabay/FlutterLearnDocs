@@ -38,13 +38,17 @@ class MyHomePage extends StatelessWidget {
                       value.getCounter.toString(),
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                    Text(
-                      context.watch<CounterModel>().getCounter.toString(),
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
                   ],
                 );
               },
+            ),
+            Text(
+              context.watch<CounterModel>().getCounter.toString(),
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              Provider.of<CounterModel>(context).getCounter.toString(),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
@@ -68,8 +72,7 @@ class MyHomePage extends StatelessWidget {
             height: 5,
           ),
           FloatingActionButton(
-            onPressed: () => Provider.of<CounterModel>(context, listen: false)
-                .decrementCounter(),
+            onPressed: () => context.read<CounterModel>().decrementCounter(),
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
